@@ -48,6 +48,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
+    kgio (2.9.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -78,6 +79,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
+    raindrops (0.13.0)
     rake (10.0.3)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -92,6 +94,10 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
+    unicorn (4.8.2)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     web-app-theme (0.7.0)
 
 PLATFORMS
@@ -107,4 +113,5 @@ DEPENDENCIES
   rails (= 3.2.3)
   rake (= 10.0.3)
   rmagick (= 2.13.1)
+  unicorn
   web-app-theme
