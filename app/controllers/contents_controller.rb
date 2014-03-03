@@ -4,26 +4,26 @@ class ContentsController < ApplicationController
   include ContentsRenderer
   # jpmobileのテンプレート自動振り分け機能
   #include Jpmobile::ViewSelector
-  
+
   helper_method :headline, :cf_filter, :entries_for_monthly_archives
-  
+
   #ログインを必要としない
   skip_before_filter :login_required
-  
+
   #キャッシュ
-  caches_page :show
-  caches_page :index
-  caches_page :top
-  
+  # caches_page :show
+  # caches_page :index
+  # caches_page :top
+
   layout "contents/common.html.erb"
-  
-  
-  
+
+
+
   #
   #一覧表示
   #
   def index
-    
+
     _index
   end
 
@@ -31,10 +31,10 @@ class ContentsController < ApplicationController
   #一覧表示(印刷)
   #
   def index_print
-    
+
     _index
-  end  
-  
+  end
+
   #
   #詳細表示
   #
@@ -44,8 +44,8 @@ class ContentsController < ApplicationController
       render_no_article
       return
     end
-    
-    
+
+
     @entry = Entry.where_valid_article.where(:id => params[:id]).first
     if @entry
       @entry.preload_custom_fields
@@ -53,7 +53,7 @@ class ContentsController < ApplicationController
     else
      render_no_article
      return
-      
+
     end
 
 
@@ -69,21 +69,21 @@ class ContentsController < ApplicationController
     end
     @entry = Entry.find(params[:id])
     @entry.preload_custom_fields
-    render_entry    
+    render_entry
   end
-  
-  
+
+
   #
   #topページ
   #
   def top
-    
-    
-    
+
+
+
     #@topics = headline("topics")
     render_top
   end
-  
+
   #
   #DBの絡まないページ
   #
@@ -93,13 +93,13 @@ class ContentsController < ApplicationController
     logger.debug "あざー #{other}"
     render_static other
   end
-  
-  
+
+
   def spelling
      redirect_to contents_index_url(:name => params[:name])
   end
- 
- 
+
+
   #アーカイブ
   def monthly_archives
     name = params[:name]
@@ -111,11 +111,11 @@ class ContentsController < ApplicationController
     year = params[:year].to_i
     month = params[:month].to_i
     date_field_name = params[:date_field_name]
-    
-    @entries = @entries_for_monthly_archives = entries_for_monthly_archives(name, date_field_name, year, month)   
+
+    @entries = @entries_for_monthly_archives = entries_for_monthly_archives(name, date_field_name, year, month)
     render_monthly_archives(name)
   end
-  
+
 #  def destroy_cache
 #    logger.debug "呼ばれたdestroy_cache"
 #    id = params[:id]
@@ -123,54 +123,54 @@ class ContentsController < ApplicationController
 #    logger.debug "呼ばれたafter destroy_cache"
 #    redirect_to root_path
 #  end
-  
+
 #  def search
 #    if params[:button_search] #検索ボタンが押された
-#      
+#
 #      elsif params[:button_reset] #リセットボタンが押された
-#      
-#      
-#    end    
+#
+#
+#    end
 #  end
-  
-  
+
+
   private
-  
+
   #
   #「記事が存在しません」表示
-  #  
+  #
   def render_no_article
     render "not_found", :handlers => [:erb], :formats => [:html], :status => 404, :layout => nil
   end
-  
-  
+
+
   #
   #カテゴリが存在するか
-  #  
+  #
   def category_exists?(name)
     Form.exists?(:template_name => name)
   end
-  
+
   #
   #
-  #  
+  #
   def _index
     unless category_exists?(params[:name])
       logger.info "存在しないカテゴリにアクセスしようとした:#{params[:name]}"
       render_no_article
       return
     end
-    
+
     name = params[:name]
     form = Form.where("template_name = ?", name).first
-    
+
     @entries = Entry.where_valid_article.page(params[:page]).order("id DESC").
       where("form_id=? ", form.id)
-      
 
-    render_entry_index(name)    
+
+    render_entry_index(name)
   end
-  
 
-  
+
+
 end

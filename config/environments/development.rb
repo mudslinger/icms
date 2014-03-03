@@ -9,8 +9,8 @@ Icms::Application.configure do
 
   # Log error messages when you accidentally call methods on nil.
   #nilに対してメソッドを呼んだときログメッセージを出す
-  config.whiny_nils = true
-
+  # config.whiny_nils = true
+  config.eager_load = false
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   #↓Rails3.1でエラーになる
@@ -18,7 +18,7 @@ Icms::Application.configure do
   #キャッシュ
   #config.action_controller.perform_caching = true #キャッシュする
   config.action_controller.perform_caching = false #キャッシュしない
-  
+
   #メール送信エラーを無視
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false

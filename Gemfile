@@ -1,26 +1,36 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
-gem 'rake', '10.0.3'
+gem 'rails', '4.0.3'
+gem 'rake'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #↓Rails3.0 NG
-gem 'mysql2', '~>0.3.15'
-gem 'authlogic', '3.1.0'
-gem 'rmagick', '2.13.1'
-gem 'carrierwave', '0.5.8'
-gem 'jquery-rails', '>= 0.2.6'
-gem 'kaminari', '0.13.0'
-gem "jpmobile", "~> 3.0.1"
-
+gem 'mysql2'
+gem 'authlogic'
+gem 'rmagick'
+gem 'carrierwave'
+gem 'jquery-rails'
+gem 'kaminari'
+gem "jpmobile"
+gem 'activerecord-session_store'
+gem 'protected_attributes'
 group :development, :test do
   gem 'web-app-theme'
   #↓WEBrickつかうなら削除
   #gem 'thin'
 end
 
+gem 'sass-rails'
+gem 'haml-rails'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby
 # Use unicorn as the web server
 gem 'unicorn'
 
