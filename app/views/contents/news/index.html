@@ -1,0 +1,47 @@
+
+<%
+
+@category_title = "新着情報";
+%>
+
+<%=render 'contents/template/brand/header_sub' %>
+
+
+
+<div class='content'>
+        <h2>新着情報</h2>
+
+
+
+
+<div class="row">
+<table>
+          <thead>
+            <tr>
+              <th>
+                日付              </th>
+              <th>
+                タイトル              </th>
+            </tr>
+          </thead>
+          
+  <% each_headline( "news",0)do |entry| %>
+          
+          <tr>
+            <th>
+<%=entry.cf.kikan_start.strftime("%Y/%m/%d") %>        </th>
+            <td><a href='<%=entry.cf.link %>'><%=entry.title %></a></td>
+          </tr>
+ <%end%>
+ 
+ 
+        </table>
+        
+        
+</div>        
+</div>
+    </section>
+
+    
+
+ <%=render 'contents/template/brand/footer_sub' %>

@@ -1,0 +1,41 @@
+
+<%
+@page_title = "北海道地方";
+@category_title = "店舗情報";
+@category_title_eng = "Shop";
+@category_url = "/shops/";
+@category_sub_title = "";
+%>
+
+<%=render 'contents/template/brand/header_sub' %>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ページ内容はcontentに入れる -->
+<div class='content'>
+      
+
+
+<h2>北海道地方</h2>
+<% @pblock_category = "shops";@pref_code = "201";@pref_name = "札幌";%><%=render 'shop_list' %>   
+<% @pblock_category = "shops";@pref_code = "202";@pref_name = "道央地区（札幌以外）";%><%=render 'shop_list' %><% @pblock_category = "shops";@pref_code = "204";@pref_name = "道北地区";%><%=render 'shop_list' %>   
+<% @pblock_category = "shops";@pref_code = "203";@pref_name = "道南地区";%><%=render 'shop_list' %>   
+<% @pblock_category = "shops";@pref_code = "205";@pref_name = "道東地区";%><%=render 'shop_list' %>   
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //section -->
+ <%=render 'footer_sub' %>

@@ -136,4 +136,64 @@ Entry.find_by_sql sql
     Entry.where_valid_article.where(:id => id).first    
   end
   
+  #緯度経度から近隣のエントリーを検索して返す。
+  # org: 起点となるEntry
+  # entries: 検索対象となるリスト
+  # max:  結果を上位max位返す
+  # options:  :attr_name 緯度経度が格納されているフィールドの名前。省略時のデフォルトはlocation
+  #           :within  指定したキロメートル以内で検索する。省略時は距離制限なし。
+  def neighbor_entries(org, entries, max, options = { :attr_name => "location"})
+    options = { :attr_name => "location"}.merge(options)
+    attr_name = options[:attr_name]
+    within = options[:within]
+    org_lat, org_lng = org._cf(attr_name ).to_s.split(",")
+    return [] if org_lat.blank? || org_lng.blank? || org_lat == "0.0" || org_lng == "0.0"|| org_lat == "0" || org_lng == "0"
+    org_lat, org_lng = org_lat.to_f, org_lng.to_f
+
+
+    arr2 = [] 
+    entries.each{|ele|
+      next if ele.id == org.id
+       lat, lng = ele._cf(attr_name ).to_s.split(",")
+
+       if lat.blank? || lng.blank? || lat == "0.0" || lng == "0.0"|| lat == "0" || lng == "0"
+          distance = Float::INFINITY
+       else
+            lat, lng = lat.to_f, lng.to_f
+          distance =  distance_between([lat,lng], [org_lat, org_lng])
+          #distance2 =  simple_distance_between([lat,lng], [org_lat, org_lng])
+       end
+
+       if within && within < distance
+         #距離の範囲外
+         next
+       end
+       arr2 << [ele, distance]
+    }
+    arr3 = []
+    
+    arr2.sort_by{|e| e[1] }.each_with_index{|ele,i|
+      entry = ele[0]
+      arr3 << entry
+
+      if (i + 1) >= max
+        #puts
+        break
+      end
+    }
+    arr3
+  end
+  private
+  #require 'geocoder'
+  def distance_between(point1, point2)
+    Geocoder::Calculations.distance_between(point1, point2, {:units => :km})
+  end
+#  def simple_distance_between(point1, point2)
+#     Math.sqrt((point1[0] - point2[0]) ** 2  + (point1[1] - point2[1]) ** 2  )
+#  end
+  
+  def file_exists?(img_path)
+    File.exists?(File.join(Rails.root, 'public', img_path ))
+  end
+  
 end

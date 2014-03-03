@@ -56,6 +56,7 @@ class FormsController < ApplicationController
 
     respond_to do |format|
       if @form.save
+        directory_setup
         format.html { redirect_to(edit_form_path(@form), :notice => 'カテゴリが登録されました。') }
         format.xml  { render :xml => @form, :status => :created, :location => @form }
       else
@@ -157,7 +158,26 @@ class FormsController < ApplicationController
     end
   end  
   
-  
+  #
+  #doc/default_template/_default 以下をコピーする
+  #
+  def directory_setup
+    contents_dir = File.join(Rails.root, "app", "views", "contents" )
+    category_dir = File.join(contents_dir, @form.template_name)
+    unless File.exists?(category_dir )
+      FileUtils.mkdir(category_dir )
+    end
+    
+    template_dir = File.join(Rails.root, "doc", "default_template", "_default")
+    
+    
+    Dir.glob(File.join(template_dir, "*") ).each do |fn|
+      dst_file = File.join(category_dir, File.basename(fn) )
+     unless File.exists?(dst_file)
+       FileUtils.cp fn, dst_file
+     end
+    end
+  end
  
   
 end

@@ -1,27 +1,33 @@
 source 'http://rubygems.org'
 
 gem 'rails', '4.0.3'
-gem 'rake'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #↓Rails3.0 NG
-gem 'mysql2'
-gem 'authlogic'
-gem 'rmagick'
+gem 'mysql2', '0.3.15'
+gem 'authlogic', '3.3.0'
+gem 'rmagick', '2.13.1'
 gem 'carrierwave'
 gem 'jquery-rails'
-gem 'kaminari'
-gem "jpmobile"
-gem 'activerecord-session_store'
-gem 'protected_attributes'
+gem 'kaminari', '0.15.1'
+gem "jpmobile", '~>4.0.0'
+gem "activerecord-session_store"
+gem "protected_attributes"
+gem "fog"
+gem "geocoder", "~> 1.1.9"
+
+gem 'aws-ses'
+gem 'rest-client'
+gem 'nokogiri', '~> 1.6.0'
+
 group :development, :test do
   gem 'web-app-theme'
   #↓WEBrickつかうなら削除
   #gem 'thin'
 end
-
+gem "haml"
 gem 'sass-rails'
 gem 'haml-rails'
 # Use Uglifier as compressor for JavaScript assets

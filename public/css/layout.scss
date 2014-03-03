@@ -1,0 +1,674 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400);
+@import "btn";
+
+.clearfix{
+    zoom:1;
+}
+.clearfix:after{
+    content:".";
+    display: block;
+    height:0px;
+    clear:both;
+    visibility:hidden;
+}
+.clear{clear:both;}
+
+body{
+	color:#fff;
+	line-height:1.4;
+	background: url(../images/mainimage.jpg) ,#000;
+	background-size: contain;
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+	&.shops{
+		background:url(../images/bg_shops.jpg),#000;
+		background-size: auto;
+		background-position: 50% 129px;
+		background-repeat: no-repeat;
+	}
+}
+
+a{
+	text-decoration:none;
+	color: #fff;
+	&:hover{
+	color:red;
+
+	}
+}
+
+img{
+    max-width : 100%;
+	height: auto;
+}
+
+table{
+	font-size: 14px;
+	th{
+		font-weight: normal;
+	}
+
+	th,td{
+		padding: 5px 15px 5px 0;
+		border-bottom: 1px solid #313131;
+		text-align: left;
+	}
+}
+/*---------------------------------------
+* 	header + nav
+------------------------------------------*/
+header{
+	background: url("../images/bg_header.jpg") repeat-x;
+	color:#fff;
+	opacity: 0.8;	
+}
+.shops header{
+	opacity: 1;
+}
+
+header .wrapper{
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+	max-width: 98%;
+}
+
+header h1{
+	font-size:0.7em;
+	font-weight:normal;
+	margin: 0;
+	line-height: 26px;
+}
+header p.logo{
+	margin: 0;
+	height: 44px;
+}
+a.sp-menu-btn{
+	display: none;
+}
+header nav ul{
+margin:0;
+
+	li{
+	float:left;
+	list-style-type:none;
+
+		a.list_none{
+		background:none;
+		padding:2px 0 0 0;
+
+		}
+	}
+
+}
+header nav ul.first{
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	li{
+		font-size: 10px;
+		height: 26px;
+		line-height: 26px;
+	}
+	li a{
+		padding:0 0 0 10px;
+		background: url("../images/icon_arrow.png") no-repeat left 48%;
+		margin-right: 10px;
+	}
+	li a.list_none{
+		padding: 0;
+		background: none;
+		/*margin-right: 3px;*/
+
+		img{
+			margin-top:3px;
+		}
+	}
+
+}
+header nav ul.second{
+	position: absolute;
+	top: 34px;
+	right: 0;
+
+	li a{
+		padding:0 0 0 20px;
+		background: url("../images/icon_arrow2.png") no-repeat left 40%;
+		font-size: 12px;
+	}
+}
+
+/*-----------------------------
+*section
+------------------------------*/
+section {
+	clear: both;
+}
+.top section.menu{
+	background: url(../images/bg_menu.jpg) no-repeat;
+	width:100%;
+	margin-top: 54%;
+	padding-bottom: 10px;
+	
+}
+section .title{
+	border-top: 1px solid #000;
+	  // background: -moz-linear-gradient(top, #585858 0%, #313131 49%, #111111 50%, #030303);
+	  // background: -webkit-gradient(linear, left top, left bottom, from(#585858), color-stop(0.49, #313131), color-stop(0.5, #111111), to(#030303));
+	height: 64px;
+	background: #585858; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzU4NTg1OCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ5JSIgc3RvcC1jb2xvcj0iIzMxMzEzMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzExMTExMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMzAzMDMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #585858 0%, #313131 49%, #111111 50%, #030303 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#585858), color-stop(49%,#313131), color-stop(50%,#111111), color-stop(100%,#030303)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #585858 0%,#313131 49%,#111111 50%,#030303 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #585858 0%,#313131 49%,#111111 50%,#030303 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #585858 0%,#313131 49%,#111111 50%,#030303 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #585858 0%,#313131 49%,#111111 50%,#030303 100%); /* W3C */
+	// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#585858', endColorstr='#030303',GradientType=0 ); /* IE6-8 */
+
+}
+section .title p{
+	width: 960px;
+	margin: 0 auto;
+	color: #fff;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 64px;
+	height: 64px;
+	max-width: 98%;
+	a{
+		display: block;
+	}
+	span{
+		display: block;
+		float: left;
+	}
+	.eng{
+		font-family: 'Alegreya Sans',Sans-serif;
+		margin-right: 10px;
+		letter-spacing: 0.5em;
+		font-size: 16px;
+	}
+	.eng::first-letter{
+			color: #F00;
+		}
+	.additional{
+		float: right;
+
+}
+
+}
+
+section .content{
+	color: #fff;
+	width: 960px;
+	margin: 0 auto;
+	max-width: 98%;
+
+	h2{
+		font-size: 40px;
+		font-weight: normal;
+	}
+}
+.top section .content{
+	text-align: center;
+}
+section.shop{
+	background: url(../images/bg_shop.jpg) no-repeat;
+	width:100%;
+	padding-bottom: 10px;
+
+}
+
+
+.redbutton {
+	width:300px;
+	max-width: 90%;
+	margin:0 auto 2em;
+	font-size: 1.3em;
+	height: 70px;
+	line-height: 70px;
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	@include redbtn;
+
+	&:hover{
+	color: #fff;
+	text-shadow:0px 0px 10px #fff;
+}
+}
+
+/*-------------------------------------
+* shops
+* 店舗情報カテゴリ
+-------------------------------------*/
+.shops section header{
+	background: none;
+	margin-bottom: 50px;
+
+	p.cateName{
+		height: 240px;
+		line-height: 240px;
+		font-size: 40px;
+		width: 960px;
+		margin: 0 auto;
+		max-width: 94%;
+}
+div.pageName{
+		height: 120px;
+		width: 960px;
+		margin:0 auto;
+		position: relative;
+		max-width: 94%;
+
+		h1{
+		line-height: 120px;
+		font-size: 30px;
+
+	}
+
+	}
+}
+nav.breadCrumb{
+	position: absolute;
+	right: 0;
+	top: 0;
+	line-height: 120px;
+	li{
+		float: left;
+		font-size: 12px;
+		margin: 0 5px;
+	}
+	li:not(:last-child):after{
+		content:">"
+	}
+}
+figure.shopPhoto{
+	width: 320px;
+	height: 220px;
+	margin-bottom: 1em;
+}
+
+
+.shops .colLeft{
+	width: 320px;
+	float: left;
+	max-width: 98%;
+
+}
+.shops .colRight{
+	width: 612px;
+	float: right;
+	margin-bottom: 50px;
+	max-width: 98%;
+}
+
+iframe{
+	border: none;
+}
+
+h1.gray-round{
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #484948;
+	height: 38px;
+	line-height: 38px;
+	background: #585858; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzU4NTg1OCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ5JSIgc3RvcC1jb2xvcj0iIzMxMzEzMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzExMTExMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMzAzMDMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #585858 0%, #313131 49%, #111111 50%, #030303 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#585858), color-stop(49%,#313131), color-stop(50%,#111111), color-stop(100%,#030303)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #585858 0%,#313131 49%,#111111 50%,#030303 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #585858 0%,#313131 49%,#111111 50%,#030303 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #585858 0%,#313131 49%,#111111 50%,#030303 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #585858 0%,#313131 49%,#111111 50%,#030303 100%); /* W3C */
+	// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#585858', endColorstr='#030303',GradientType=0 ); /* IE6-8 */
+	margin: 0;
+	color: #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font-size: 18px;
+	padding-left: 20px;
+}
+
+.nearbyShops ul li{
+	display: block;
+	width: 180px;
+	float: left;
+	margin-right: 30px;
+	margin-bottom: 50px;
+	h2{
+		font-size: 16px;
+		font-weight: normal;
+	}
+	p{
+		margin-top: 0;
+		font-size: 13px;
+	}
+	a.btn{
+		@include redbtn;
+		width: 150px;
+		margin: 0 auto;
+		height: 25px;
+		line-height: 25px;
+		font-size: 14px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		&:hover{
+			color: #fff;
+			text-shadow:0px 0px 3px #fff;
+		}
+	}
+}
+.nearbyShops ul {
+padding-left: 0;
+}
+section.secrets .content{
+	border-top: 1px solid #313131;
+	h1{
+		font-size: 18px;
+
+	}
+	ul{
+		padding-left: 0;
+		float: left;
+	}
+	ul li{
+		float: left;
+		display: block;
+		width: 46%;
+		margin-right: 4%;
+	}
+	ul li:last-child{
+		margin-right: 0;
+	}
+	figure{
+		width: 180px;
+		float: left;
+		margin-right: 26px;
+	}
+	h2{
+		font-size: 16px;
+		font-weight: normal;
+		margin-top: 0;
+	}
+	p{
+		font-size: 13px;
+	}
+
+
+}
+/*----------------------------------------
+*footer 
+----------------------------------------*/
+
+footer{
+	width:100%;
+	background-color:#303030;
+	color:#fff;
+	clear: both;
+	border-top: 1px solid #000;
+	/*margin-top: -10px;*/
+	
+
+	.box_wrap{
+	width:960px;
+	margin: 20px auto 20px;
+	max-width: 96%;
+	}
+	.box{
+		float:left;
+		width: 24%;
+		margin-right: 2%;
+
+		dl{
+			line-height: 1.8;
+		}
+
+		dl dt{
+			font-size: 14px;
+			font-weight: bold;
+		}
+		dl dd{
+			font-size: 12px;
+			margin-left: 0;
+		}
+
+	}
+	.copyright{
+		background: #070707;
+		clear: both;
+		text-align: center;
+		font-size: 10px;
+		height: 30px;
+		line-height: 30px;
+	}
+
+}
+
+/* ------------------------------------------------
+* iPhone横向き以下用スタイル　（iPad縦向き（768px）未満に対応）
+-------------------------------------------------*/
+@media only screen and (max-width: 767px){
+
+header nav{
+	display: none;
+	background: #000;
+	position: absolute;
+	width: 100%;
+}
+header nav ul{
+	padding-left: 0px;
+	position: relative;
+	top: 30px;
+	left: 0;
+	background: #000;
+
+	li{
+		display: block;
+		float: none;
+		background: #000;
+		text-indent: 10px;
+	}
+}
+header nav ul.first{
+	position: relative;
+	top: auto;
+	right: 0;
+}
+header nav ul.second{
+	position: relative;
+	top: auto;
+	right: 0;
+
+}
+header nav ul.first li{
+	height: auto;
+	line-height: auto;
+	font-size: 12px;
+}
+header nav ul.first li a,
+header nav ul.second li a{
+	background: #000;
+	display: block;
+	height: 44px;
+	border-bottom: 1px solid #ccc;
+	line-height: 44px;
+	background: none;
+	padding: 0;
+	margin-right: 0;
+}
+header nav ul.first li:last-child a{
+	border-bottom: none;
+}
+header nav ul li.facebook,
+header nav ul li.twitter{
+	display: none;
+}
+
+section .content{
+	h2{
+		font-size: 120%;
+	}
+}
+.top section.menu{
+  margin-top: 247px;
+	
+}  
+
+/*
+* pの幅指定　topだけ
+*/
+.top section .content p{
+    width: 74%;
+    margin: 0 auto 1em;
+  }
+header{
+	background: #000;
+}
+header h1{
+	display: none;
+}
+section header h1.pageName{
+	display: block;
+}
+
+a.sp-menu-btn{
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 42px;
+}
+/*----------------------
+* shops　店舗情報カテゴリ
+----------------------*/
+body.shops {
+background-size: contain;
+background-position: 50% 108px;
+
+}
+
+.shops section header p.cateName {
+display: none;
+}
+.shops section header div.pageName {
+position: static;
+height: auto;
+}
+.shops section header div.pageName h1 {
+line-height: 94px;
+font-size: 25px;
+}
+.shops section header{
+	margin-bottom: 0;
+}
+iframe{
+	max-width: 80%;
+	height: 200px;
+
+}
+.nearbyShops ul li {
+
+margin-bottom: 22px;
+margin-left: 4%;
+}
+
+.shops .colRight,.shops .colLeft{
+	float: none;
+}
+section.secrets .content ul li {
+	clear: left;
+float: none;
+width: 96%;
+margin-left: 2%;
+margin-bottom: 1em;
+
+}
+.top section.menu,.top section.shop {
+  background-size: cover;
+}
+}
+
+
+/* --------------------------------------------------
+* iPhone縦向き用スタイル　（iPhone4横向き（480px）未満の幅が対象）
+------------------------------------------------------*/
+@media only screen and (max-width: 479px){
+  body{
+    background-size: auto 360px;
+    background-position: 50% 0px;
+  }
+.top section.menu{
+  margin-top: 300px;
+}
+footer .box{
+	float: none;
+	width: 90%;
+}
+/*
+* shops　店舗情報カテゴリ
+*/
+body.shops {
+background-size: contain;
+background-position: 50% 108px;
+
+}
+.nearbyShops ul {
+margin-bottom: 22px;
+}
+.nearbyShops ul li {
+float: none;
+margin-bottom: 22px;
+margin-left: 4%;
+}
+section.secrets .content ul li {
+	float: none;
+width: 92%;
+margin: 0 4%;
+}
+section.secrets .content ul li:last-child {
+margin-right: auto;
+}
+.shops section header .title .jp {
+display: none;
+}
+figure.shopPhoto{
+	max-width:98%; 
+	margin: 0 auto;
+}
+section.secrets .content ul li {
+display: block;
+width: 96%;
+margin-right: 0;
+}
+section.secrets .content ul li figure{
+	float: none;
+}
+
+.shops section header p.cateName {
+display: none;
+}
+.shops section header div.pageName {
+position: static;
+height: auto;
+}
+.shops section header div.pageName h1 {
+line-height: 88px;
+font-size: 25px;
+}
+nav.breadCrumb{
+	display: none;
+}
+
+iframe{
+	max-width: 98%;
+	height: 300px;
+}
+
+}

@@ -1,0 +1,106 @@
+
+
+<%
+@page_title = "セットメニュー";
+@category_title = "メニュー";
+@category_title_eng = "Menu";
+@category_url = "/menus/";
+%>
+
+<%=render 'contents/template/brand/header_sub' %>
+
+
+<style type="text/css">
+<!--
+/*---------------------------------------
+* 	menus メニュー list版
+------------------------------------------*/
+.menus {
+  margin-bottom: 2em;
+}
+
+.menus .row {
+  background: #353635;
+  overflow: hidden;
+  border-bottom: 1px solid #000;
+}
+.menus .row .type {
+  color: #fff;
+  clear: left;
+  padding: 30px 10px 0;
+  min-height: 87px;
+  text-align: center;
+  font-size: x-large;
+  font-family: "ヒラギノ明朝 Pro W6", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", serif;
+  width: 100px;
+  float: left;
+}
+.menus .row .type span {
+  color: #999;
+  display: block;
+  font-size: 12px;
+  font-family: 'Alegreya Sans',Sans-serif;
+  letter-spacing: 0.2em;
+}
+.menus .row .type span:first-letter {
+  color: #f00;
+}
+
+.menus .row ul.menu {
+  float: left;
+  padding-left: 0;
+  margin: 0;
+  width: 840px;
+  background: #fff;
+}
+.menus .row ul.menu li {
+  float: left;
+  display: block;
+  background: #fff;
+  text-align: center;
+  min-height: 97px;
+  width: 140px;
+  float: left;
+  padding: 5px 0;
+  margin-left: 0;
+}
+.menus .row ul.menu li a {
+  display: block;
+  color: #000;
+}
+
+-->
+
+</style>
+
+
+
+
+    <section>
+
+      <!-- ページ内容はcontentに入れる -->
+      <div class='content'>
+        <h2>
+          セットメニュー
+        </h2>
+        <p>
+          山岡家のメニューラインアップはとても充実しています。レギュラーメニューだけでもなんと28種類の中からお好きなラーメンをお選びいただけます。
+        </p>
+
+
+<div class='menus'>
+
+
+<%@category0 = "限定";@category1 = "期間限定";@category1_eng = "Limited"%>
+<%=render 'contents/template/brand/loop/menu_list2' %>
+
+
+</div>
+
+
+
+      
+      </div>
+    </section>
+    <!-- //section -->
+ <%=render 'contents/template/brand/footer_sub' %>

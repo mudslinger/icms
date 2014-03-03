@@ -143,5 +143,10 @@ module ApplicationHelper
     [ from , to ]
   end
   
+  def javascript_include_tag_default
+    javascript_include_tag "jquery-1.5.min", :rails, :application, :cache => false
+  end
+
+  
   
 end

@@ -39,7 +39,10 @@ var icmCtrl = {
 		//alert(obj.rfile.file_path.url);
 		if(obj){
 			
-			rf = obj.rfile;
+			rf = obj.rfile;//json形式変更互換性のため残す
+			if(!rf){
+				rf = obj;
+			}
 			
 			this.presetGeneralPanelField(file_path_url, rf.label, rf.description);
 			this.preview(file_path_url);	

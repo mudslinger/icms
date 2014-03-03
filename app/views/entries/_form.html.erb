@@ -70,31 +70,31 @@
 
 
 	<%if enabled_flags[:fukki] %>
-      <%= f.submit "復帰", :class => "button", :name=>"submit_action[fukki]", :disable_with => '登録中...' %>
+      <%= f.submit "復帰", :class => "button", :name=>"submit_action[fukki]", :data => {:disable_with => '登録中...'} %>
 	<%end%>	
 	
 	<%if enabled_flags[:sakujo] %>
-      <%= f.submit "完全に削除", :class => "button", :name=>"submit_action[sakujo]", :onclick => "return confirm('この操作は元に戻せません。よろしいですか？');" , :disable_with => '登録中...'%>
+      <%= f.submit "完全に削除", :class => "button", :name=>"submit_action[sakujo]", :onclick => "return confirm('この操作は元に戻せません。よろしいですか？');" , :data => {:disable_with => '登録中...'}%>
 	<%end%>	  	
   	
 	<%if enabled_flags[:sitagaki] %>
-      <%= f.submit "下書き保存", :class => "button", :name=>"submit_action[sitagaki]"  , :disable_with => '登録中...' %>
+      <%= f.submit "下書き保存", :class => "button", :name=>"submit_action[sitagaki]"  , :data => {:disable_with => '登録中...'} %>
 	<%end%>
 	
 	<%if enabled_flags[:kettei] %>
-  	  <%= f.submit "決定", :class => "button", :name=>"submit_action[kettei]", :disable_with => '登録中...' %>
+  	  <%= f.submit "決定", :class => "button", :name=>"submit_action[kettei]", :data => {:disable_with => '登録中...'} %>
 	<%end%>
 	
 	<%if enabled_flags[:syounin] %>
-      <%= f.submit "承認", :class => "button", :name=>"submit_action[syounin]", :disable_with => '登録中...' %>
+      <%= f.submit "承認", :class => "button", :name=>"submit_action[syounin]", :data => {:disable_with => '登録中...'} %>
 	<%end%>
 	
 	<%if enabled_flags[:syounin_torikesi] %>
-      <%= f.submit "承認取消", :class => "button", :name=>"submit_action[syounin_torikesi]", :disable_with => '登録中...' %>
+      <%= f.submit "承認取消", :class => "button", :name=>"submit_action[syounin_torikesi]", :data => {:disable_with => '登録中...'} %>
 	<%end%>
 	
 	<%if enabled_flags[:gomibako] %>
-      <%= f.submit "ゴミ箱", :class => "button", :name=>"submit_action[gomibako]", :disable_with => '登録中...' %>
+      <%= f.submit "ゴミ箱", :class => "button", :name=>"submit_action[gomibako]", :data => {:disable_with => '登録中...'} %>
 	<%end%>		
   </div>
   

@@ -1,0 +1,15 @@
+<div class="row">
+<div class="type">
+<%=@category1%><span><%=@category1_eng%></span></div>
+
+<ul class="menu">
+
+ <% each_headline( "menus", 0,:where => "{category0} = '#{@category0}' and {category1} = '#{@category1}'", :order => 'created_at ASC'   )do |entry| %>
+<li><%=link_to contents_detail_path_for(entry) do %>
+<%unless entry.cf.photo1.blank? %><img src="<%= entry.cf.photo1 %>" width="120" /><%end%>
+<%end%>
+<%=link_to entry.title, contents_detail_path_for(entry) %>
+</li>
+<%end%>
+</ul>
+</div>

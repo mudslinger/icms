@@ -48,4 +48,8 @@ Icms::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  config.consider_all_requests_local = false
+
+  I18n.enforce_available_locales = true
+  config.i18n.default_locale = :ja
 end

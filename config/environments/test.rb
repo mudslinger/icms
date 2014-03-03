@@ -8,8 +8,6 @@ Icms::Application.configure do
   config.cache_classes = true
   config.eager_load = false
 
-  # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
@@ -33,4 +31,7 @@ Icms::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  I18n.enforce_available_locales = true
+  config.i18n.default_locale = :ja
 end

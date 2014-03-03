@@ -1,0 +1,38 @@
+<%
+@page_title = "関東地方";
+@category_title = "店舗情報";
+@category_title_eng = "Shop";
+@category_url = "/shops/";
+@category_sub_title = "";
+%>
+
+<%=render 'contents/template/brand/header_sub' %>
+
+
+
+
+
+
+
+<!-- ページ内容はcontentに入れる -->
+<div class='content'>
+      
+
+
+ <h2>関東地方</h2>
+ <% @pblock_category = "shops";@pref_code = "8";@pref_name = "茨城県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "9";@pref_name = "栃木県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "10";@pref_name = "群馬県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "12";@pref_name = "千葉県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "11";@pref_name = "埼玉県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "13";@pref_name = "東京都" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "14";@pref_name = "神奈川県" %><%=render 'shop_list' %> 
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //section -->
+ <%=render 'footer_sub' %>

@@ -1,0 +1,36 @@
+<%
+@page_title = "近畿地方";
+@category_title = "店舗情報";
+@category_title_eng = "Shop";
+@category_url = "/shops/";
+@category_sub_title = "";
+%>
+
+<%=render 'contents/template/brand/header_sub' %>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ページ内容はcontentに入れる -->
+<div class='content'>
+      
+
+ <h2>近畿地方</h2> 
+ <% @pblock_category = "shops";@pref_code = "26";@pref_name = "京都府" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "27";@pref_name = "大阪府" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "28";@pref_name = "兵庫県" %><%=render 'shop_list' %>   
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //section -->
+ <%=render 'footer_sub' %>

@@ -1,7 +1,7 @@
 --- 
 
 #misato_rss_url: http://192.168.252.203/~kawahara/rss.xml
-app_title: "CMS"
+app_title: "yamaokaya"
 #承認依頼メールにURLを記載するときに使用する。
 base_url: "http://192.168.252.59:3000/"
 #MAPデフォルト表示

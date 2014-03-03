@@ -40,5 +40,7 @@ module Icms
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    #TODO 
+    config.active_record.whitelist_attributes = false
   end
 end

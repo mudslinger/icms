@@ -130,3 +130,7 @@ kaminari patch
 2013/03/26
   マイページ機能
   app/views/contents 以下をsvn管理から除外
+
+2014/02/21
+  Rails4 対応  
+  pageキャッシュが非標準となったため、取り除いた。

@@ -1,0 +1,21 @@
+          <nav class='breadCrumb'>
+            <ul>
+              <li>
+                <a href='/index.html' title='トップ'>
+                  トップ
+                </a>
+              </li>
+              
+              
+              <li>
+              <%unless @category_url.blank? %>
+               <a href='<%= @category_url %>'><%= @category_title %></a>
+               <% else %>
+                 <%= @category_title %>
+               <%end%>
+              </li>
+              <li>
+                <%=@page_title%>
+              </li>
+            </ul>
+          </nav>

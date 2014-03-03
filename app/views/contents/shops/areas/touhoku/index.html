@@ -1,0 +1,40 @@
+<%
+@page_title = "東北地方";
+@category_title = "店舗情報";
+@category_title_eng = "Shop";
+@category_url = "/shops/";
+@category_sub_title = "";
+%>
+
+<%=render 'contents/template/brand/header_sub' %>
+
+
+
+
+
+
+
+
+<!-- ページ内容はcontentに入れる -->
+<div class='content'>
+      
+
+
+<h2>東北地方</h2>
+<% @pblock_category = "shops";@pref_code = "2";@pref_name = "青森県" %><%=render 'shop_list' %>   
+<% @pblock_category = "shops";@pref_code = "5";@pref_name = "秋田県" %><%=render 'shop_list' %>   
+<% @pblock_category = "shops";@pref_code = "3";@pref_name = "岩手県" %><%=render 'shop_list' %>   
+<% @pblock_category = "shops";@pref_code = "4";@pref_name = "宮城県" %><%=render 'shop_list' %>   
+<% @pblock_category = "shops";@pref_code = "6";@pref_name = "山形県" %><%=render 'shop_list' %>   
+<% @pblock_category = "shops";@pref_code = "7";@pref_name = "福島県" %><%=render 'shop_list' %>  
+ 
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //section -->
+ <%=render 'footer_sub' %>

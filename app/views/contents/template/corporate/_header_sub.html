@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <meta content='ラーメン,濃厚とんこつ,24時間営業' name='Keywords'>
+    <title><%=@page_title%><%unless @category_title.blank? %>
+		<%unless @page_title.blank? %>｜<%end%><%=@category_title%><%end%>｜株式会社丸千代山岡家</title>
+    <meta content='札幌市東区。北海道および東日本での直営ラーメン店の経営。企業・IR情報。' name='description'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <link href='/corporate/css/normalize.css' rel='stylesheet' type='text/css'>
+
+    <link href='/corporate/css/style.css' rel='stylesheet' type='text/css'>
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script src='/corporate/js/scrolltop.js'></script>
+    <script src='/corporate/js/accordion.js'></script>
+    <!--[if lt IE 9]>
+      <script src='/corporate/js/html5.js'></script>
+      <link href='/corporate/css/ie8.css' media='all' rel='stylesheet' type='text/css'>
+    <![endif]-->
+  </head>
+  <body class='business'>
+
+    <header>
+      <div class='container'>
+        <h1>ラーメン山岡家を経営する株式会社丸千代山岡家</h1>
+        <ul class='utilityLink'>
+          <li>
+            <a href='/contents/c_etc/241'>このHPについて</a>
+          </li>
+          <li>
+
+            <a href='/c_ir/contact/'>お問合せ</a>
+          </li>
+          <li>
+            <a href='/contents/c_etc/240'>サイトマップ</a>
+          </li>
+        </ul>
+        <figure class='logo'>
+          <a href='/index.html'>
+
+            <img alt='株式会社丸千代山岡家' src='/corporate/img/common/logo.png'>
+          </a>
+        </figure>
+        <!-- // header -->
+      </div>
+    </header>
+    
+    
+    
+    <%=render 'contents/template/corporate/nav_sub' %>
+    
+    
+    
+        <div class='container'>
+      <ul class='breadCrumb' style="">
+              <li>
+                <a href='/index.html' title='トップ'>
+                  トップ
+                </a>
+              </li>
+              
+              <%unless @category_title.blank? %>
+              <li>
+              <%unless @category_url.blank? %>
+               <a href='<%= @category_url %>'><%= @category_title %></a>
+               <% else %>
+                 <%= @category_title %>&nbsp;&gt;&nbsp; 
+               <%end%>
+              </li><%end%>
+              <li>
+                <%=@page_title%>
+              </li>
+      </ul>
+    </div>
+    <section>
+      <h1>
+        <div class='container'><%=@page_title%></div>
+      </h1>

@@ -1,10 +1,15 @@
 warn "danger_patch loaded"
+
+
 #production環境においても常にテンプレートをコンパイルしなおす
 module ActionView
   # = Action View Resolver
   class Resolver
-    private
     
+    def self.caching?
+      false
+    end
+    private
     def caching?
       #@caching ||= !defined?(Rails.application) || Rails.application.config.cache_classes
       false
@@ -40,3 +45,11 @@ module Jpmobile
 end
 
 #Jpmobile::Emoticon::CONVERSION_TABLE_TO_SOFTBANK[0xE735] = "[recy]"
+module ActiveRecord
+  module SessionStore
+    class Session < ActiveRecord::Base
+      attr_accessible :session_id, :data
+    end
+  end
+end
+

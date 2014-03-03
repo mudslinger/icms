@@ -1,0 +1,13 @@
+<%=render 'contents/template/brand/header_sub'%>
+      
+	  <!-- お礼等メッセージの表示-->
+	  <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+	  
+<%=yield%>
+<%=render 'contents/template/brand/footer_sub'%>

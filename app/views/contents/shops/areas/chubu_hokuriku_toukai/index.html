@@ -1,0 +1,42 @@
+<%
+@page_title = "中部・東海・北陸地方";
+@category_title = "店舗情報";
+@category_title_eng = "Shop";
+@category_url = "/shops/";
+@category_sub_title = "";
+%>
+
+<%=render 'contents/template/brand/header_sub' %>
+
+
+
+
+
+
+
+
+
+<!-- ページ内容はcontentに入れる -->
+<div class='content'>
+      
+
+
+ 
+ <h2>中部・東海・北陸地方</h2>
+ <% @pblock_category = "shops";@pref_code = "19";@pref_name = "山梨県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "22";@pref_name = "静岡県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "20";@pref_name = "長野県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "23";@pref_name = "愛知県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "21";@pref_name = "岐阜県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "24";@pref_name = "三重県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "16";@pref_name = "富山県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "17";@pref_name = "石川県" %><%=render 'shop_list' %>  
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //section -->
+ <%=render 'footer_sub' %>

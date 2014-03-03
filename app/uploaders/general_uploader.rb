@@ -28,6 +28,7 @@
 #end
 
 
+
 module CarrierWave
   class SanitizedFile
     # Sanitize the filename, to prevent hacking
@@ -37,6 +38,7 @@ module CarrierWave
       #name = name.gsub(/[^a-zA-Z0-9\.\-\+_]/,"_")
       name = name.force_encoding "utf-8"
       name = "_#{name}" if name =~ /\A\.+\z/
+      name = name.gsub(/[\*\?\{\}\[\]<>\(\)~&\|\\\$;'`"\ ]/, "_")
       name = "unnamed" if name.size == 0
       return name.downcase
     end
@@ -54,8 +56,8 @@ class GeneralUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :file
-  # storage :s3
-
+  #storage :s3
+  #storage :fog
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -150,10 +152,12 @@ class GeneralUploader < CarrierWave::Uploader::Base
   
   #
   #
-  #
-  def url
-    #puts "urlがよばれた"
-    URI.encode(super)
+  #古いバージョンではURI_ENCODEされない
+  if Gem::Version.create(CarrierWave::VERSION) < Gem::Version.create("0.9.0")
+    def url
+      #puts "urlがよばれた"
+      URI.encode(super)
+    end
   end
   
   #
@@ -170,21 +174,63 @@ class GeneralUploader < CarrierWave::Uploader::Base
       return self.url
     end
     
-    
     width, height =  size.split('x').map{|s| s.to_i }
     target = current_path
     storedir = File.dirname(target)
     bname = File.basename(target)
     new_bname = "#{width}x#{height}_#{bname}"
-    if File.exists?(target)
-      new_path = File.join(storedir, new_bname)
-      unless File.exists?(new_path)
-        #warn "任意サイズのサムネイル作成:#{new_path}"
+    new_path = File.join(storedir, new_bname)
+    new_file = clone
+    new_file.retrieve_from_store!(new_bname)
+    #warn "任意サイズのサムネイル作成:#{size}, target:#{target},#{File} fl#{file.class} self.class.storage=#{self.class.storage}"    
+    unless new_file.file.exists? #File.exists?(new_path)
+      if file.exists? #File.exists?(target)
+        
+  #warn "任意サイズのサムネイルがない:#{new_path}"
         options = { :pad => false, :stretch => true}.merge(options)
-        dirty_resize(target, new_path, width, height, options)
+  #warn "dirty_resize(#{target}, #{new_path}, width, height, options)"
+        with_temp_file(target, new_path) do |target, new_path|
+          dirty_resize(target, new_path, width, height, options)
+        end
+      else
+  #warn "作成元のファイルが存在しない"      
       end
+    else
+  #warn "任意サイズのサムネイルすでにあり"
     end
     return URI.encode(File.join(File.dirname(self.url), new_bname))
+  end
+  
+  def with_temp_file(target, new_path)
+    if self.class.storage == CarrierWave::Storage::Fog
+#      retrieve_from_store!(File.basename(target))
+#      tumb_uploader = clone
+      
+      Tempfile.open("original", :external_encoding => "BINARY"){|tempfile_orig|
+        data = file.read
+        warn "エンコーディング：#{data.encoding}"
+        tempfile_orig.write data 
+        Tempfile.open("new", :external_encoding => "BINARY"){|tempfile_new|
+          def tempfile_new.original_filename
+             @original_filename 
+          end
+          def tempfile_new.original_filename=(n)
+             @original_filename = n
+          end
+          tempfile_new.original_filename = new_path
+          
+          yield tempfile_orig.path, tempfile_new.path
+          
+#          tumb_uploader.retrieve_from_store!(File.basename(new_path))
+#          tumb_uploader.store!(tempfile_new)
+          store!(tempfile_new)
+          retrieve_from_store!(File.basename(target))
+        }
+      }
+      
+    else
+      yield target, new_path
+    end
   end
 
  def basename
@@ -345,7 +391,8 @@ class GeneralUploader < CarrierWave::Uploader::Base
     #warn "my_callbackが呼ばれた"
     begin
       sweep_ondemand_thumb_if_exists
-    rescue
+    rescue => e
+      p e
     end
   end
   
@@ -356,8 +403,9 @@ class GeneralUploader < CarrierWave::Uploader::Base
     
     begin
       sweep_ondemand_thumb_if_exists
-    rescue
-    end
+    rescue => e
+      p e
+    end 
   end
   
   
@@ -366,6 +414,8 @@ class GeneralUploader < CarrierWave::Uploader::Base
   #211x118thubm_xxx.jpgのようなファイルができてしまう
   #バージョンごとに呼ばないといけない
   def sweep_ondemand_thumb_if_exists
+    #warn "削除スイープオンデマンド#{file.dir}"    
+    
     target = current_path
     storedir = File.dirname(target)
     bname = File.basename(target)

@@ -1,0 +1,30 @@
+<%
+@page_title = "九州地方";
+@category_title = "店舗情報";
+@category_title_eng = "Shop";
+@category_url = "/shops/";
+@category_sub_title = "";
+%>
+
+<%=render 'contents/template/brand/header_sub' %>
+
+
+
+
+
+
+<!-- ページ内容はcontentに入れる -->
+<div class='content'>
+      
+
+<h2>九州地方</h2> 
+ <% @pblock_category = "shops";@pref_code = "40";@pref_name = "福岡県" %><%=render 'shop_list' %>   
+ <% @pblock_category = "shops";@pref_code = "0";@pref_name = "熊本県" %><%=render 'shop_list' %>   
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //section -->
+ <%=render 'footer_sub' %>
